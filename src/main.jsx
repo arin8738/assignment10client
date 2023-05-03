@@ -15,30 +15,32 @@ import Blog from './componends/Blog/Blog.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Main></Main> ,
-    children : [
+    element: <Main></Main>,
+    children: [
       {
-        path : '/',
-        element : <Home></Home>
+        path: '/',
+        element: <Home></Home>
       },
-      {
-        path :'/login',
-        element : <Login></Login>
-      },
-      {
-        path :'/register',
-        element : <Register></Register>
-      },
-      {
-        path :'/blog',
-        element : <Blog></Blog>
-      }
+
     ]
   },
+  
+  {
+    path: '/login',
+    element: <Login></Login>
+  },
+  {
+    path: '/register',
+    element: <Register></Register>
+  },
+  {
+    path: '/blog',
+    element: <Blog></Blog>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

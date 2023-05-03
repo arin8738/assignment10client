@@ -1,8 +1,11 @@
 import React from 'react';
+import Nav from '../header/nav';
 
 const Blog = () => {
     return (
+        
         <div className='mb-40'>
+            <Nav></Nav>
            <h1 className='text-center mt-11 font-semibold text-5xl'>Question And Answer</h1>
             <div className='w-2/3 mx-auto text-left mt-10 rounded-lg bg-slate-200 px-7 py-8 '>
                 <h1 className='text-2xl font-semibold'>Q1.The differences uncontrolled and control components</h1>
