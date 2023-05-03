@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div>
             <div>
-                <h1>ok</h1>
+                <h1>ok1</h1>
             </div>
             <div>
 
