@@ -10,7 +10,7 @@ const ChefsSection = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch("https://chef-recipe-hunter-server-tau.vercel.app/chef-data")
+    fetch("http://localhost:5000/chef-data")
       .then((res) => res.json())
       .then((data) => setChefData(data));
         // console.log(chefData);

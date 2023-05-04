@@ -11,6 +11,7 @@ import Home from './componends/header/Home.jsx';
 import Login from './componends/login/login.jsx';
 import Register from './componends/login/register.jsx';
 import Blog from './componends/Blog/Blog.jsx';
+import ChefDetails from './componends/view-details/ChefDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,13 @@ const router = createBrowserRouter([
   {
     path: '/blog',
     element: <Blog></Blog>
-  }
+  },
+  {
+    path:"/chef-details/:id",
+    element : <ChefDetails></ChefDetails>,
+    loader : ({params}) => fetch(`http://localhost:5000/chef-data/${params.id}`)
+    
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
