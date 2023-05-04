@@ -22,8 +22,8 @@ const Recipies = ({ recipies, notify }) => {
       style={{ border: "2px solid #c6a87d" }}
     >
       <div className="">
-        <img
-          style={{ height: "400px", with: "524px" }}
+        <img className="rounded-2xl"
+          style={{ height: "400px", width: "524px" }}
           src={recipeImg}
           alt=""
         />

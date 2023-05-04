@@ -25,7 +25,7 @@ const router = createBrowserRouter([
 
     ]
   },
-  
+
   {
     path: '/login',
     element: <Login></Login>
@@ -39,11 +39,11 @@ const router = createBrowserRouter([
     element: <Blog></Blog>
   },
   {
-    path:"/chef-details/:id",
-    element : <ChefDetails></ChefDetails>,
-    loader : ({params}) => fetch(`http://localhost:5000/chef-data/${params.id}`)
-    
-    }
+    path: "/chef-details/:id",
+    element: <ChefDetails></ChefDetails>,
+    loader: ({ params }) => fetch(`http://localhost:5000/chef-data/${params.id}`)
+
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

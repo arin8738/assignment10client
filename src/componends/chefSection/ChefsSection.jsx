@@ -19,7 +19,7 @@ const ChefsSection = () => {
 
   return (
     <div>
-      <div className="mx-auto">
+      <div className="mx-auto bg-base-100 ">
         <div className="text-center pt-8 pb-5 md:pt-24 md:pb-20">
           <p className="text-xl font-medium text-my-primary">
             Team of Restaurant

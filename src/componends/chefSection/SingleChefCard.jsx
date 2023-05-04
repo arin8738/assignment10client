@@ -20,7 +20,7 @@ const SingleChefCard = ({ d }) => {
                   // width= "300px"
                 /> */}
         </figure>
-        <div className="card-body">
+        <div className="card-body bg-base-300">
           <h2 className="card-title">{d.name}</h2>
           <div>
             <p>Numbers of recipes: {d.recipes}</p>
@@ -52,7 +52,7 @@ const SingleChefCard = ({ d }) => {
           </div>
           <div className="card-actions justify-end ">
             <Link to={`/chef-details/${d.id}`}>
-              <button className="btn glass btn-outline text-white hover:btn-accent">
+              <button className="btn glass btn-outline text-black hover:btn-accent">
                 View Recipes
               </button>
             </Link>
