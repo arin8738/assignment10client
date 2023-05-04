@@ -22,9 +22,9 @@ const ChefDetails = () => {
       <div className="text-black ">
         <div
           
-          className="md:px-32 h-full w-full py-24 px-4 box-border"
+          className="md:px-32 h-full w-full py-24 px-4 box-border bg-base-300"
         >
-          <div className="md:flex items-center justify-end">
+          <div className="md:flex items-center justify-center">
             <div className="mr-9">
               <h2 className="text-6xl font-semibold my-5">{name}</h2>
               <div className="">
@@ -61,11 +61,11 @@ const ChefDetails = () => {
               </div>
             </div>
             <div>
-              <img
+              <img className=""
                 style={{
                   borderRadius: "10%",
-                  height: "360px",
-                  width: "330px",
+                  height: "450px",
+                  width: "600px",
                   margin: "10px 0",
                 }}
                 src={picture}
@@ -81,9 +81,9 @@ const ChefDetails = () => {
         className="  md:px-32 md:py-10 bg-base-300"
        
       >
-        <div className="text-center pt-8 pb-5 md:pt-24 md:pb-20">
+        <div className="text-center  pb-5 md:pt-24 md:pb-20">
           <p className="text-lg font-medium text-my-primary">Explore</p>
-          <h3 className="text-4xl font-semibold mt-2">Delicious Recipies</h3>
+          <h3 className="text-4xl font-semibold ">Delicious Recipies</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2">

@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthPage/AuthProvider";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import app from "../../firebase.init";
 
 
 const Nav = () => {
-  const { user, Logout } = useContext(AuthContext);
+//   const { user, Logout } = useContext(AuthContext);
   // console.log(user)
+  
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
   const handleLogOut = () => {
-    Logout()
+    signOut(auth)
       .then(() => {
         console.log("Log out successful");
       })
@@ -16,6 +22,13 @@ const Nav = () => {
       });
   };
 
+    useEffect(() => {
+    onAuthStateChanged(auth, (loadedUser) => {
+      setUser(loadedUser);
+    //   setLoader(false);
+      console.log(loadedUser);
+    });
+  }, []);
   return (
     <div>
       <div className=" px-2 md:px-32  bg-base-300  text-black text-base">
@@ -40,7 +53,7 @@ const Nav = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black rounded-box "
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box "
               >
                 <li className="md:mx-6 text-black">
                   <NavLink
@@ -56,7 +69,7 @@ const Nav = () => {
                   <NavLink
                     to="/blog"
                     className={({ isActive }) =>
-                      isActive ? "text-my-primary" : "text-white"
+                      isActive ? "text-my-primary" : "text-black"
                     }
                   >
                     Blog
@@ -78,7 +91,7 @@ const Nav = () => {
                   <NavLink
                     to="/"
                     className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? " text-my-primary text-xl font-semibold" : "text-white"
+                      isPending ? "pending" : isActive ? " text-my-primary text-xl font-semibold" : ""
                     }
                   >
                     Home
@@ -88,7 +101,7 @@ const Nav = () => {
                   <NavLink
                     to="/blog"
                     className={({ isActive }) =>
-                      isActive ? "text-my-primary text-xl font-semibold" : "text-white"
+                      isActive ? "text-my-primary text-xl font-semibold" : "text-black"
                     }
                   >
                     Blog

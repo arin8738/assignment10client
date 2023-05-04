@@ -31,6 +31,7 @@ const Blog = () => {
             </div>
             <div className='w-2/3 mx-auto text-left mt-10 rounded-lg bg-slate-200 px-7 py-8'>
                 <h1 className='text-2xl font-semibold'>Q2.How to validate React props using proptypes</h1>
+                <p className='text-lg mt-2'> When developing a React application, you'll need to structure and define your props to avoid bugs and errors. Just like a function might have mandatory arguments, a React component might require a prop to be defined, otherwise, it will not render properly. Forgetting to pass a required prop into a component that needs it could cause your app to behave unexpectedly.</p>
             </div>
             <div className='w-2/3 mx-auto text-left mt-10 rounded-lg bg-slate-200 px-7 py-8'>
                 <h1 className='text-2xl font-semibold'>Q3.Difference between nodejs and expressjs</h1>

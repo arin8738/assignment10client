@@ -12,11 +12,13 @@ import Login from './componends/login/login.jsx';
 import Register from './componends/login/register.jsx';
 import Blog from './componends/Blog/Blog.jsx';
 import ChefDetails from './componends/view-details/ChefDetails.jsx';
+import ErrorPage from './componends/footer/Error.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement : <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

@@ -10,7 +10,7 @@ const SingleChefCard = ({ d }) => {
     <div>
       <div className="card w-96 my-4 bg-my-primary border-1 mx-auto">
         <figure>
-          <img src={d.picture} alt="car!" />
+          <img className="h-72 w-full" src={d.picture} alt="car!" />
           {/* <LazyLoadImage
           delayTime="600s"
                 effect="blur"

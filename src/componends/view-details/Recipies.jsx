@@ -6,8 +6,7 @@ import "@smastrom/react-rating/style.css";
 
 const Recipies = ({ recipies, notify }) => {
   // console.log(recipies);
-  const { cookingMethod, ingredients, rating, recipeImg, recipeName} =
-    recipies;
+  const { cookingMethod, ingredients, rating, recipeImg, recipeName} = recipies;
 
   const [isDisable, setDisable] = useState(false);
 

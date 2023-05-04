@@ -19,13 +19,13 @@ const ChefsSection = () => {
 
   return (
     <div>
-      <div className="mx-auto bg-base-100 ">
+      <div className="mx-auto bg-base-200 mb-40">
         <div className="text-center pt-8 pb-5 md:pt-24 md:pb-20">
-          <p className="text-xl font-medium text-my-primary">
+          {/* <p className="text-xl font-medium text-my-primary">
             Team of Restaurant
-          </p>
+          </p> */}
           <h3 className="text-4xl font-semibold mt-3">
-            Meet Our Professionals
+            Meet Our Chef's
           </h3>
         </div>
 
@@ -37,7 +37,8 @@ const ChefsSection = () => {
           </div>
         ) : (
           
-          <div>
+          <div className="mb-20">
+            <p className="mx-auto mb-20 text-center text-4xl">Loading.....................</p>
             {/* <FadeLoader color="#c6a87d" className="mx-auto my-5"/> */}
         </div>
         )}

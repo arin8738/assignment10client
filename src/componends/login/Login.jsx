@@ -1,12 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthPage/AuthProvider";
 import Nav from "../header/nav";
+import app from "../../firebase.init";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 // import { FadeLoader } from "react-spinners";
 
 const Login = () => {
-  const { Login, LoginWGoogle,LoginWGithub, loader } = useContext(AuthContext);
+//   const { Login, LoginWGoogle,LoginWGithub, loader } = useContext(AuthContext);
   const [errorM, setErrorM] = useState("");
   const [isEmail, setEmail] = useState('');
   const [isPassword, setPassword] = useState('');
@@ -18,7 +21,21 @@ const Login = () => {
   const navigate = useNavigate();
   // console.log(from);
 
-  
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
+  useEffect(() => {
+    onAuthStateChanged(auth, (loadedUser) => {
+      setUser(loadedUser);
+    //   setLoader(false);
+      // console.log(loadedUser);
+    });
+  }, []);
+
+//   const Login = (email, password) => {
+//     setLoader(true);
+    // signInWithEmailAndPassword(auth, email, password);
+//   };
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -28,7 +45,7 @@ const Login = () => {
 
     // console.log(email, password);
 
-    Login(email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
         setErrorM("");
@@ -56,7 +73,8 @@ const Login = () => {
   }
 
   const handleWithGoogle = () => {
-    LoginWGoogle()
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
       })
@@ -67,7 +85,8 @@ const Login = () => {
       navigate(from, { replace: true });
   };
   const handleWithGithub = () => {
-    LoginWGithub()
+    const provider = new GithubAuthProvider();
+     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
       })

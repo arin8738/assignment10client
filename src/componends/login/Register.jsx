@@ -1,10 +1,12 @@
 
 
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthPage/AuthProvider";
 import Nav from "../header/nav";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import app from "../../firebase.init";
 
 
 const Register = () => {
@@ -75,7 +77,8 @@ const Register = () => {
   };
 
   const handleWithGoogle = () => {
-    LoginWGoogle()
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
       })
@@ -86,7 +89,8 @@ const Register = () => {
 
   };
   const handleWithGithub = () => {
-    LoginWGithub()
+    const provider = new GithubAuthProvider();
+     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
       })
@@ -95,6 +99,16 @@ const Register = () => {
         setErrorM(error.message);
       });
   };
+
+  const [user, setUser] = useState(null);
+  const auth = getAuth(app);
+  useEffect(() => {
+    onAuthStateChanged(auth, (loadedUser) => {
+      setUser(loadedUser);
+    //   setLoader(false);
+      // console.log(loadedUser);
+    });
+  }, []);
 
 
   return (
